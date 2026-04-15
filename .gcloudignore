@@ -1,0 +1,30 @@
+# This file specifies files that are not uploaded to the cloud
+# when using `gcloud` commands.
+
+node_modules/
+npm-debug.log
+dist/
+dist-ssr/
+
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+STRATEGIC_REVIEW.md
+CLAUDE.md
+docs/
+migrated_prompt_history/
+.claude/

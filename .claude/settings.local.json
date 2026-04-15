@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/theorajan/.nvm/versions/**)",
+      "Read(//Users/theorajan/.local/share/mise/shims/**)",
+      "Read(//Users/theorajan/.volta/bin/**)",
+      "Read(//Users/theorajan/.nvm/alias/**)",
+      "Read(//opt/homebrew/Cellar/node/23.10.0_1/bin/**)",
+      "Bash(/opt/homebrew/bin/node --version)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(/opt/homebrew/bin/node node_modules/.bin/tsc --noEmit)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(grep -l \"AI_API_KEY\\\\|API_KEY\\\\|PLACEHOLDER_API_KEY\" \"/Users/theorajan/Library/Mobile Documents/com~apple~CloudDocs/6 - Design Engineering/Projects/NextGenWireless/dist/assets/\"*)"
+    ]
+  }
+}
