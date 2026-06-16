@@ -1,10 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useStore } from './store';
 import { Navigation } from './components/Navigation';
 import { Background } from './components/ui/Background';
-import { ArchitectureSandbox } from './components/sandbox/SandboxWorkspace';
 import { LandingPage } from './components/landing/LandingPage';
+
+// The sandbox (SVG topology engine + scenario data) is behind a view toggle and
+// never needed on first paint, so split it into its own chunk loaded on demand.
+const ArchitectureSandbox = lazy(() =>
+  import('./components/sandbox/SandboxWorkspace').then((m) => ({ default: m.ArchitectureSandbox })),
+);
+
+const SandboxFallback = () => (
+  <div className="min-h-screen grid place-items-center text-slate-400">
+    <div className="flex items-center gap-3 text-sm font-medium">
+      <div className="w-2 h-2 bg-arista-blue rounded-full animate-pulse" />
+      Loading Architecture Scenario Engine…
+    </div>
+  </div>
+);
 
 function App() {
   const { toastMessage, setMode, activeView } = useStore();
@@ -23,7 +37,13 @@ function App() {
       {activeView === 'landing' && <Navigation />}
       
       <main className={activeView === 'landing' ? "relative z-10 lg:pl-24 pb-20 lg:pb-0" : "relative z-10 min-h-screen"}>
-        {activeView === 'landing' ? <LandingPage /> : <ArchitectureSandbox />}
+        {activeView === 'landing' ? (
+          <LandingPage />
+        ) : (
+          <Suspense fallback={<SandboxFallback />}>
+            <ArchitectureSandbox />
+          </Suspense>
+        )}
       </main>
 
       {/* Global Toast */}
