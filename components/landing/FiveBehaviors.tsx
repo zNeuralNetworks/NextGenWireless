@@ -2,7 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../../store';
 import { Section } from '../ui/Section';
-import { Network, ArrowRightLeft, Activity, Users, X, CheckCircle, AlertTriangle, RefreshCw, Server, Shield, MousePointerClick, Radio } from 'lucide-react';
+import Network from 'lucide-react/dist/esm/icons/network.js';
+import ArrowRightLeft from 'lucide-react/dist/esm/icons/arrow-right-left.js';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
+import Users from 'lucide-react/dist/esm/icons/users.js';
+import X from 'lucide-react/dist/esm/icons/x.js';
+import CheckCircle from 'lucide-react/dist/esm/icons/circle-check-big.js';
+import AlertTriangle from 'lucide-react/dist/esm/icons/triangle-alert.js';
+import RefreshCw from 'lucide-react/dist/esm/icons/refresh-cw.js';
+import Server from 'lucide-react/dist/esm/icons/server.js';
+import Shield from 'lucide-react/dist/esm/icons/shield.js';
+import MousePointerClick from 'lucide-react/dist/esm/icons/mouse-pointer-click.js';
+import Radio from 'lucide-react/dist/esm/icons/radio.js';
 import { Jargon } from '../ui/Jargon';
 
 // --- HUD Simulation Components ---

@@ -35,6 +35,43 @@ npm run dev
 
 The application will launch on `http://localhost:3000/`.
 
+## 🧭 Knowledge Graph
+
+This repository supports local code navigation through `code-review-graph`.
+
+```bash
+code-review-graph build --repo .
+code-review-graph status --repo .
+```
+
+The generated `.code-review-graph/` database is local-only and ignored by Git. See `docs/KNOWLEDGE_GRAPH.md` for the MCP workflow, refresh commands, and current parser caveats.
+
+## ☁️ GCP Cloud Build Deployment
+
+`cloudbuild.yaml` builds the Docker image from this GitHub repo, pushes it to Artifact Registry, and deploys it to Cloud Run. The Cloud Run service is public at the edge, but the Node runtime redirects every app route to Google OAuth before serving the Vite build.
+
+Required Secret Manager secrets:
+
+```bash
+gcloud secrets create nextgenwireless-google-client-id --replication-policy=automatic
+gcloud secrets create nextgenwireless-google-client-secret --replication-policy=automatic
+gcloud secrets create nextgenwireless-session-secret --replication-policy=automatic
+```
+
+Add secret versions with the OAuth client ID, OAuth client secret, and a high-entropy session secret. Grant the Cloud Build service account Cloud Run deployment permissions, and grant the Cloud Run runtime service account Secret Manager Secret Accessor on those secrets. In Google Cloud Console, connect the GitHub repository `zNeuralNetworks/NextGenWireless` to a Cloud Build trigger that uses `cloudbuild.yaml`.
+
+Google OAuth redirect URI:
+
+```text
+https://<cloud-run-service-url>/auth/google/callback
+```
+
+Allowed admin accounts are configured in `cloudbuild.yaml`:
+
+```text
+tinurajan1@gmail.com,theorajan1@gmail.com
+```
+
 ## 📁 Core Components & Information Architecture
 
 *   **`Hero.tsx`**: Dynamic animated packet-flow validations contrasting Legacy controller models vs System-Native distributed models.
@@ -45,3 +82,4 @@ The application will launch on `http://localhost:3000/`.
 ## Product Roadmaps
 
 *   **`docs/SCENARIO_ENGINE_UI_ROADMAP.md`**: Current UI/icon assessment, grading, and phased roadmap for turning the Architecture Scenario Engine into a repeatable benchmarking workflow.
+*   **`docs/KNOWLEDGE_GRAPH.md`**: Local knowledge-graph setup and usage notes for agent-assisted code navigation.

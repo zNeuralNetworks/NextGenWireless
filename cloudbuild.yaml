@@ -1,49 +1,64 @@
 steps:
-  # Build the Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: 
+  - id: 'ensure-artifact-registry-repository'
+    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
+    entrypoint: 'bash'
+    args:
+      - '-ceu'
+      - |
+        gcloud artifacts repositories describe "${_ARTIFACT_REPOSITORY}" \
+          --location="${_REGION}" >/dev/null 2>&1 || \
+        gcloud artifacts repositories create "${_ARTIFACT_REPOSITORY}" \
+          --repository-format=docker \
+          --location="${_REGION}" \
+          --description="Docker images for ${_SERVICE_NAME}"
+
+  - id: 'build-image'
+    name: 'gcr.io/cloud-builders/docker'
+    args:
       - 'build'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$SHORT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_SERVICE_NAME}:$SHORT_SHA'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:latest'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_SERVICE_NAME}:latest'
       - '.'
 
-  # Push the image to Container Registry
-  - name: 'gcr.io/cloud-builders/docker'
+  - id: 'push-image'
+    name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$SHORT_SHA'
+      - '--all-tags'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_SERVICE_NAME}'
 
-  # Deploy to Cloud Run
-  - name: 'gcr.io/cloud-builders/gke-deploy'
-    args:
-      - 'run'
-      - '--filename=.'
-      - '--image=gcr.io/$PROJECT_ID/$_SERVICE_NAME:$SHORT_SHA'
-      - '--location=${_REGION}'
-
-  # Alternative: Use gcloud to deploy directly to Cloud Run
-  - name: 'gcr.io/cloud-builders/gcloud'
+  - id: 'deploy-cloud-run'
+    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
     args:
       - 'run'
       - 'deploy'
       - '${_SERVICE_NAME}'
-      - '--image=gcr.io/$PROJECT_ID/$_SERVICE_NAME:$SHORT_SHA'
+      - '--image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_SERVICE_NAME}:$SHORT_SHA'
       - '--region=${_REGION}'
       - '--platform=managed'
       - '--allow-unauthenticated'
+      - '--port=8080'
+      - '--set-env-vars=^|^NODE_ENV=production|ADMIN_EMAILS=${_ADMIN_EMAILS}'
+      - '--set-secrets=GOOGLE_CLIENT_ID=${_GOOGLE_CLIENT_ID_SECRET}:latest,GOOGLE_CLIENT_SECRET=${_GOOGLE_CLIENT_SECRET_SECRET}:latest,SESSION_SECRET=${_SESSION_SECRET_SECRET}:latest'
+      - '--quiet'
 
 images:
-  - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$SHORT_SHA'
-  - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:latest'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_SERVICE_NAME}:$SHORT_SHA'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_SERVICE_NAME}:latest'
 
 substitutions:
-  _SERVICE_NAME: 'arista-wireless-differentiators'
+  _SERVICE_NAME: 'nextgenwireless'
   _REGION: 'us-central1'
+  _ARTIFACT_REPOSITORY: 'nextgenwireless'
+  _ADMIN_EMAILS: 'tinurajan1@gmail.com,theorajan1@gmail.com'
+  _GOOGLE_CLIENT_ID_SECRET: 'nextgenwireless-google-client-id'
+  _GOOGLE_CLIENT_SECRET_SECRET: 'nextgenwireless-google-client-secret'
+  _SESSION_SECRET_SECRET: 'nextgenwireless-session-secret'
 
 options:
-  machineType: 'N1_HIGHCPU_8'
+  machineType: 'E2_HIGHCPU_8'
   logging: CLOUD_LOGGING_ONLY
   substitution_option: 'ALLOW_LOOSE'
 

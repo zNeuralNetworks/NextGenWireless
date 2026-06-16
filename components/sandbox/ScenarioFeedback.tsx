@@ -1,7 +1,8 @@
 import React from 'react';
 import { useStore } from '../../store';
 import { SCENARIOS } from '../../constants';
-import { AlertTriangle, CheckCircle } from 'lucide-react';
+import AlertTriangle from 'lucide-react/dist/esm/icons/triangle-alert.js';
+import CheckCircle from 'lucide-react/dist/esm/icons/circle-check-big.js';
 import { motion } from 'framer-motion';
 
 interface ScenarioFeedbackProps {

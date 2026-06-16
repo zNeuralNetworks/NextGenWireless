@@ -3,37 +3,30 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-# Copy dependency manifests
 COPY package*.json ./
-
-# Install dependencies
 RUN npm ci
 
-# Copy source code
 COPY . .
-
-# Build the application
 RUN npm run build
 
-# Production stage
-FROM node:22-alpine
+# Runtime stage
+FROM node:22-alpine AS runner
 
 WORKDIR /app
 
-# Install a lightweight HTTP server to serve the static build
-RUN npm install -g serve
+ENV NODE_ENV=production
 
-# Copy built assets from builder stage
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+COPY --from=builder /app/server.mjs ./server.mjs
 COPY --from=builder /app/dist ./dist
 
-# Create non-root user for security
 RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nextjs -u 1001
+    adduser -S appuser -u 1001 -G nodejs
 
-USER nextjs
+USER appuser
 
-# Cloud Run requires listening on port 8080
 EXPOSE 8080
 
-# Serve the built application
-CMD ["serve", "-s", "dist", "-l", "8080"]
+CMD ["node", "server.mjs"]

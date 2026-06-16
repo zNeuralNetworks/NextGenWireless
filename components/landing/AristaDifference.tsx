@@ -1,6 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Network, Activity, GitMerge, CheckCircle, ArrowRight, Shield, TrendingDown, Clock, Zap } from 'lucide-react';
+import Network from 'lucide-react/dist/esm/icons/network.js';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
+import GitMerge from 'lucide-react/dist/esm/icons/git-merge.js';
+import CheckCircle from 'lucide-react/dist/esm/icons/circle-check-big.js';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.js';
+import Shield from 'lucide-react/dist/esm/icons/shield.js';
+import TrendingDown from 'lucide-react/dist/esm/icons/trending-down.js';
+import Clock from 'lucide-react/dist/esm/icons/clock.js';
+import Zap from 'lucide-react/dist/esm/icons/zap.js';
 import { Jargon } from '../ui/Jargon';
 import { useStore } from '../../store';
 

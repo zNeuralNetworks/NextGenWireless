@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Section } from '../ui/Section';
-import { ChevronDown, CheckCircle2, XCircle } from 'lucide-react';
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down.js';
+import CheckCircle2 from 'lucide-react/dist/esm/icons/circle-check.js';
+import XCircle from 'lucide-react/dist/esm/icons/circle-x.js';
 import { Jargon } from '../ui/Jargon';
 import { useStore } from '../../store';
 

@@ -1,7 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '../ui/Section';
-import { Cpu, Network, Activity, Layers, ArrowRightLeft, Radio, Database, GitCommit, Lock } from 'lucide-react';
+import Cpu from 'lucide-react/dist/esm/icons/cpu.js';
+import Network from 'lucide-react/dist/esm/icons/network.js';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
+import Layers from 'lucide-react/dist/esm/icons/layers.js';
+import ArrowRightLeft from 'lucide-react/dist/esm/icons/arrow-right-left.js';
+import Radio from 'lucide-react/dist/esm/icons/radio.js';
+import Database from 'lucide-react/dist/esm/icons/database.js';
+import GitCommit from 'lucide-react/dist/esm/icons/git-commit-horizontal.js';
+import Lock from 'lucide-react/dist/esm/icons/lock.js';
 import { Jargon } from '../ui/Jargon';
 import { useStore } from '../../store';
 import { GlassCard } from '../ui/GlassCard';

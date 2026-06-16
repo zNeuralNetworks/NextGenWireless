@@ -1,6 +1,15 @@
 import React from 'react';
 import { Section } from '../ui/Section';
-import { Code, Database, CheckCircle, Clock, Search, Network, XCircle, Shield, TrendingDown, Zap } from 'lucide-react';
+import Code from 'lucide-react/dist/esm/icons/code.js';
+import Database from 'lucide-react/dist/esm/icons/database.js';
+import CheckCircle from 'lucide-react/dist/esm/icons/circle-check-big.js';
+import Clock from 'lucide-react/dist/esm/icons/clock.js';
+import Search from 'lucide-react/dist/esm/icons/search.js';
+import Network from 'lucide-react/dist/esm/icons/network.js';
+import XCircle from 'lucide-react/dist/esm/icons/circle-x.js';
+import Shield from 'lucide-react/dist/esm/icons/shield.js';
+import TrendingDown from 'lucide-react/dist/esm/icons/trending-down.js';
+import Zap from 'lucide-react/dist/esm/icons/zap.js';
 import { AttributionTag } from '../ui/AttributionTag';
 import { Jargon } from '../ui/Jargon';
 import { useStore } from '../../store';

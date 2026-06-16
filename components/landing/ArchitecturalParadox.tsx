@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Section } from '../ui/Section';
-import { Box, Server, Network, AlertTriangle, Search, ArrowUpCircle, Lock, Cloud, XCircle, CheckCircle, HelpCircle, AlertOctagon, RefreshCw } from 'lucide-react';
+import Box from 'lucide-react/dist/esm/icons/box.js';
+import Server from 'lucide-react/dist/esm/icons/server.js';
+import Network from 'lucide-react/dist/esm/icons/network.js';
+import AlertTriangle from 'lucide-react/dist/esm/icons/triangle-alert.js';
+import Search from 'lucide-react/dist/esm/icons/search.js';
+import ArrowUpCircle from 'lucide-react/dist/esm/icons/circle-arrow-up.js';
+import Lock from 'lucide-react/dist/esm/icons/lock.js';
+import Cloud from 'lucide-react/dist/esm/icons/cloud.js';
+import XCircle from 'lucide-react/dist/esm/icons/circle-x.js';
+import CheckCircle from 'lucide-react/dist/esm/icons/circle-check-big.js';
+import HelpCircle from 'lucide-react/dist/esm/icons/circle-question-mark.js';
+import AlertOctagon from 'lucide-react/dist/esm/icons/octagon-alert.js';
+import RefreshCw from 'lucide-react/dist/esm/icons/refresh-cw.js';
 import { Jargon } from '../ui/Jargon';
 
 type ModelType = 'meraki' | 'cisco' | 'arista';

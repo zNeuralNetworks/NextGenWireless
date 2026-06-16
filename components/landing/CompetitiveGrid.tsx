@@ -1,6 +1,11 @@
 import React from 'react';
 import { Section } from '../ui/Section';
-import { Server, Cloud, Cpu, XCircle, AlertTriangle, CheckCircle } from 'lucide-react';
+import Server from 'lucide-react/dist/esm/icons/server.js';
+import Cloud from 'lucide-react/dist/esm/icons/cloud.js';
+import Cpu from 'lucide-react/dist/esm/icons/cpu.js';
+import XCircle from 'lucide-react/dist/esm/icons/circle-x.js';
+import AlertTriangle from 'lucide-react/dist/esm/icons/triangle-alert.js';
+import CheckCircle from 'lucide-react/dist/esm/icons/circle-check-big.js';
 import { AttributionTag } from '../ui/AttributionTag';
 import { Jargon } from '../ui/Jargon';
 import { useStore } from '../../store';

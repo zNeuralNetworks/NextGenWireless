@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Section } from '../ui/Section';
-import { Shield, ShieldAlert, Server, Wifi, User, Lock, ArrowRight, Activity } from 'lucide-react';
+import Shield from 'lucide-react/dist/esm/icons/shield.js';
+import ShieldAlert from 'lucide-react/dist/esm/icons/shield-alert.js';
+import Server from 'lucide-react/dist/esm/icons/server.js';
+import Wifi from 'lucide-react/dist/esm/icons/wifi.js';
+import User from 'lucide-react/dist/esm/icons/user.js';
+import Lock from 'lucide-react/dist/esm/icons/lock.js';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.js';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
 import { Jargon } from '../ui/Jargon';
 import { useStore } from '../../store';
 

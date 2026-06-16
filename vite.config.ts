@@ -8,7 +8,13 @@ export default defineConfig({
     port: 3000,
     host: 'localhost',
   },
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss({
+      // Avoid production CSS optimizer hangs in Cloud Build/local CI.
+      optimize: false,
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),

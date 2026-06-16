@@ -2,7 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useStore } from '../../store';
 import { Section } from '../ui/Section';
-import { Network, ShieldCheck, ArrowRight, XCircle, AlertTriangle, Zap, Server, Activity } from 'lucide-react';
+import Network from 'lucide-react/dist/esm/icons/network.js';
+import ShieldCheck from 'lucide-react/dist/esm/icons/shield-check.js';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.js';
+import XCircle from 'lucide-react/dist/esm/icons/circle-x.js';
+import AlertTriangle from 'lucide-react/dist/esm/icons/triangle-alert.js';
+import Zap from 'lucide-react/dist/esm/icons/zap.js';
+import Server from 'lucide-react/dist/esm/icons/server.js';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
 import { Jargon } from '../ui/Jargon';
 
 // --- SUB-COMPONENTS: VISUAL DIAGRAMS ---

@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { useStore } from '../store';
-import { BookOpen, Layers, Menu, X, Home, Activity, Zap, LayoutGrid, Shield, Share2 } from 'lucide-react';
+import BookOpen from 'lucide-react/dist/esm/icons/book-open.js';
+import Layers from 'lucide-react/dist/esm/icons/layers.js';
+import Menu from 'lucide-react/dist/esm/icons/menu.js';
+import X from 'lucide-react/dist/esm/icons/x.js';
+import Home from 'lucide-react/dist/esm/icons/house.js';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
+import Zap from 'lucide-react/dist/esm/icons/zap.js';
+import LayoutGrid from 'lucide-react/dist/esm/icons/layout-grid.js';
+import Shield from 'lucide-react/dist/esm/icons/shield.js';
+import Share2 from 'lucide-react/dist/esm/icons/share-2.js';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NAV_ITEMS } from '../constants';
 

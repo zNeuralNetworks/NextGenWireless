@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useRef } from 'react';
 import { useStore } from '../../store';
 import { useInView, motion } from 'framer-motion';
-import { Copy } from 'lucide-react';
+import Copy from 'lucide-react/dist/esm/icons/copy.js';
 
 interface SectionProps {
   id: string;

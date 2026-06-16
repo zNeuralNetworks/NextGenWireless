@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Section } from '../ui/Section';
-import { Activity, Radio, MoveRight, Layers, AlertOctagon, CheckCircle2 } from 'lucide-react';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
+import Radio from 'lucide-react/dist/esm/icons/radio.js';
+import MoveRight from 'lucide-react/dist/esm/icons/move-right.js';
+import Layers from 'lucide-react/dist/esm/icons/layers.js';
+import AlertOctagon from 'lucide-react/dist/esm/icons/octagon-alert.js';
+import CheckCircle2 from 'lucide-react/dist/esm/icons/circle-check.js';
 import { Jargon } from '../ui/Jargon';
 import { useStore } from '../../store';
 

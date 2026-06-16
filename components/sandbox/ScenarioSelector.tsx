@@ -1,6 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ChevronRight, ListChecks, Map, RotateCcw, SlidersHorizontal } from 'lucide-react';
+import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left.js';
+import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right.js';
+import ListChecks from 'lucide-react/dist/esm/icons/list-checks.js';
+import Map from 'lucide-react/dist/esm/icons/map.js';
+import RotateCcw from 'lucide-react/dist/esm/icons/rotate-ccw.js';
+import SlidersHorizontal from 'lucide-react/dist/esm/icons/sliders-horizontal.js';
 import { useStore } from '../../store';
 import { SCENARIOS, SCENARIO_ORDER, type ScenarioId } from '../../constants';
 

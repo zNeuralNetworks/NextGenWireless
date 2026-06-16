@@ -1,7 +1,16 @@
 import React from 'react';
 import { useStore } from '../../store';
 import { Section } from '../ui/Section';
-import { AlertTriangle, CheckCircle, Wifi, CloudOff, Activity, Scissors, Zap, Shield, Database, Brain } from 'lucide-react';
+import AlertTriangle from 'lucide-react/dist/esm/icons/triangle-alert.js';
+import CheckCircle from 'lucide-react/dist/esm/icons/circle-check-big.js';
+import Wifi from 'lucide-react/dist/esm/icons/wifi.js';
+import CloudOff from 'lucide-react/dist/esm/icons/cloud-off.js';
+import Activity from 'lucide-react/dist/esm/icons/activity.js';
+import Scissors from 'lucide-react/dist/esm/icons/scissors.js';
+import Zap from 'lucide-react/dist/esm/icons/zap.js';
+import Shield from 'lucide-react/dist/esm/icons/shield.js';
+import Database from 'lucide-react/dist/esm/icons/database.js';
+import Brain from 'lucide-react/dist/esm/icons/brain.js';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Jargon } from '../ui/Jargon';
 import { GlassCard } from '../ui/GlassCard';

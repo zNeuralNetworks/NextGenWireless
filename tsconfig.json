@@ -26,5 +26,27 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "include": [
+    "App.tsx",
+    "index.tsx",
+    "vite.config.ts",
+    "store.ts",
+    "constants.ts",
+    "constants/**/*.ts",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "lucide-icons.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "dist-ssr",
+    ".code-review-graph",
+    ".claude",
+    ".cursor",
+    ".kiro",
+    ".qoder",
+    "migrated_prompt_history"
+  ]
 }

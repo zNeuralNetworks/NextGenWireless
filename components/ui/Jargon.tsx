@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStore } from '../../store';
-import { Info } from 'lucide-react';
+import Info from 'lucide-react/dist/esm/icons/info.js';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface JargonProps {

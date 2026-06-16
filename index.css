@@ -1,4 +1,9 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "./App.tsx";
+@source "./index.tsx";
+@source "./components";
+@source "./constants.ts";
+@source "./store.ts";
 
 :root {
   --color-bg: #0f1117;

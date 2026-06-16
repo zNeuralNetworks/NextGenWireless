@@ -176,12 +176,12 @@ SVG glow filters are defined in `<defs>` with `feGaussianBlur + feMerge`.
 
 ## Preview / Dev Server
 
-Config: `.claude/launch.json`
+Config: `.Codex/launch.json`
 
 - Dev: port 3000 — `preview_start("dev")`
 - Preview: port 4173 — `preview_start("preview")`
 
-**Note:** The Claude Preview tool browser cannot connect to localhost in this environment. Use `tsc --noEmit` (`npm run lint`) to verify type correctness instead.
+**Note:** The Codex Preview tool browser cannot connect to localhost in this environment. Use `tsc --noEmit` (`npm run lint`) to verify type correctness instead.
 
 ## Conventions
 
